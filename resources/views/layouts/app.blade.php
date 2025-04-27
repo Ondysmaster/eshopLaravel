@@ -54,18 +54,7 @@
             z-index: 1001;  /* Above the black overlay */
         }
 
-        .transition-sub {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #fff;
-            text-align: center;
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;  /* Start hidden */
-            z-index: 1001;  /* Above the black overlay */
-        }
+       
 
         /* Main content wrapper */
         .content-wrapper {
@@ -80,13 +69,6 @@
     </style>
 </head>
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-        <!-- Page transition overlay with "Barvio" text -->
-        <div class="page-transition">
-            <div class="transition-text">Barvio</div>
-            <div class="transition-sub">Ecologic colors without oil</div>
-        </div>
-
         @include('layouts.navigation')
 
         <main class="content-wrapper">
