@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Přidání sloupce pro název produktu
-            $table->text('description'); // Přidání sloupce pro popis produktu
-            $table->decimal('price', 8, 2); // Přidání sloupce pro cenu (8 číslic, 2 desetinná místa)
-            $table->string('sku')->unique(); // Přidání sloupce pro SKU, jedinečný identifikátor
-            $table->integer('in_stock'); // Přidání sloupce pro množství na skladě
-            $table->timestamps(); // Automatické sloupce created_at a updated_at
+            $table->string('name'); // název produktu
+            $table->text('description'); // popis produktu
+            $table->decimal('price', 8, 2); // cena
+            $table->string('sku')->unique()->nullable(); // SKU, může být prázdné
+            $table->integer('in_stock')->nullable(); // množství na skladě, nepovinné
+            $table->string('image')->nullable(); // obrázek produktu, nepovinný
+            $table->timestamps(); // created_at a updated_at
         });
     }
 

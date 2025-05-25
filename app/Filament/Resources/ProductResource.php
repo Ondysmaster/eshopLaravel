@@ -1,3 +1,5 @@
+<?php
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductResource\Pages;
@@ -5,8 +7,8 @@ use App\Models\Product;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Resources\Resource;
-use Filament\Resources\Form;
-use Filament\Resources\Table;
+use Filament\Forms\Form;
+use Filament\Tables\Table;
 
 class ProductResource extends Resource
 {
@@ -18,16 +20,10 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required(),
-                Forms\Components\TextInput::make('price')
-                    ->required(),
-                Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->required(),
+                Forms\Components\TextInput::make('name')->required()->maxLength(255),
+                Forms\Components\Textarea::make('description')->required(),
+                Forms\Components\TextInput::make('price')->required(),
+                Forms\Components\FileUpload::make('image')->image()->required(),
             ]);
     }
 
@@ -39,9 +35,6 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('price')->sortable(),
                 Tables\Columns\ImageColumn::make('image')->label('Image')->sortable(),
             ])
-            ->filters([
-                // Filtry, pokud je potřeba
-            ])
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
@@ -49,11 +42,14 @@ class ProductResource extends Resource
     }
 
     public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListProducts::route('/'),
-            'create' => Pages\CreateProduct::route('/create'),
-            'edit' => Pages\EditProduct::route('/{record}/edit'),
-        ];
-    }
+{
+    return [
+        'index' => Pages\ListProduct::route('/'),
+        'create' => Pages\CreateProduct::route('/create'),
+        'edit' => Pages\EditProduct::route('/{record}/edit'),
+    ];
 }
+
+
+    }
+
