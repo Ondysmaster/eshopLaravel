@@ -17,15 +17,18 @@ class ProductResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('name')->required()->maxLength(255),
-                Forms\Components\Textarea::make('description')->required(),
-                Forms\Components\TextInput::make('price')->required(),
-                Forms\Components\FileUpload::make('image')->image()->required(),
-            ]);
-    }
+{
+    return $form
+        ->schema([
+            Forms\Components\TextInput::make('name')->required()->maxLength(255),
+            Forms\Components\Textarea::make('description')->required(),
+            Forms\Components\TextInput::make('price')->required(),
+            Forms\Components\FileUpload::make('image')
+                ->image()
+                ->required()
+                ->disk('public'), // uloží do storage/app/public
+        ]);
+}
 
     public static function table(Table $table): Table
     {

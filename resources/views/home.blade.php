@@ -3,7 +3,7 @@
 @section('content')
     <!-- Hero Section with Image and Gradient -->
     <div class="relative h-screen hero-image">
-        <img src="{{ asset('storage/automore.jpg') }}" alt="Vítejte" class="object-cover w-full h-full z-10 filter brightness-90 hover:brightness-110 transition-all duration-500">
+        <img src="{{ asset('/storage/automore.jpg') }}" alt="Vítejte" class="object-cover w-full h-full z-10 filter brightness-90 hover:brightness-110 transition-all duration-500">
         <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent opacity-60"></div>
         <div class="absolute inset-0 flex items-center justify-between px-4">
             <!-- Left side: Title -->
